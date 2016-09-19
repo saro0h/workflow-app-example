@@ -1,0 +1,28 @@
+framework:
+  workflows:
+      order:
+          marking_store:
+              type: property_accessor
+          supports:
+              - AppBundle\Entity\Product
+          places:
+              - in_stock
+              - in_cart
+              - in_wish_list
+              - ready_to_purchase
+              - paid
+          transitions:
+              put_in_cart:
+                  from: in_stock
+                  to: in_cart
+              check_out:
+                  from: in_cart
+                  to:
+                      - in_wish_list
+                      - ready_to_purchase
+              send_to_friend:
+                  from: in_wish_list
+                  to: ready_to_purchase
+              pay:
+                  from: ready_to_purchase
+                  to: paid
