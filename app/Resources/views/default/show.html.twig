@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Curent place: {{ product.marking|keys|join('</code>, <code>')|default('in_stock')|raw }}</h1>
+    <h1>Curent place: {{ product.marking|keys|join('</code>, <code>')|default('[]')|raw }}</h1>
     <h2>Available transition(s):</h2>
 
     <fieldset>

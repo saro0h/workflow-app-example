@@ -26,7 +26,10 @@ class DefaultController extends Controller
     public function createOrderAction()
     {
         $product = new Product();
+        $marking = $this->get('workflow.product')->getMarking($product);
         $em = $this->getDoctrine()->getManager();
+
+        $product->setMarking($marking);
 
         $em->persist($product);
         $em->flush();
