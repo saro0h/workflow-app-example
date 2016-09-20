@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Curent place: {{ product.marking|keys|join('</code>, <code>')|default('[]')|raw }}</h1>
+    <h1>Curent place: {{ product.marking|keys|join(', ')|default('[]')|raw }}</h1>
     <h2>Available transition(s):</h2>
 
     <fieldset>
@@ -29,7 +29,7 @@
 
     <br />
 
-    <form action="{{ url('article_apply_transition', {id: product.id}) }}" method="post">
+    <form action="{{ url('product_apply_transition', {id: product.id}) }}" method="post">
         <div class="btn-group-vertical" role="group">
             {% for transition in workflow_transitions(product) %}
                 <button type="submit" name="transition" value="{{ transition.name }}"

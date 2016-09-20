@@ -23,13 +23,12 @@ class DefaultController extends Controller
     /**
      * @Route("/create_product", name="create_product")
      */
-    public function createOrderAction()
+    public function createProductAction()
     {
         $product = new Product();
-        $marking = $this->get('workflow.product')->getMarking($product);
+        $this->get('workflow.product')->getMarking($product);
         $em = $this->getDoctrine()->getManager();
 
-        $product->setMarking($marking);
 
         $em->persist($product);
         $em->flush();
@@ -48,7 +47,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/apply-transition/{id}", name="article_apply_transition")
+     * @Route("/apply-transition/{id}", name="product_apply_transition")
      */
     public function applyTransitionAction(Request $request, Product $product)
     {

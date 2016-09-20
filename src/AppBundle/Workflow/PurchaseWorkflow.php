@@ -8,7 +8,7 @@ class PurchaseWorkflow
 {
     private $definition;
 
-    public function setUp()
+    public function create()
     {
         $this->definition = new Definition();
         $this->definition->addPlaces([
