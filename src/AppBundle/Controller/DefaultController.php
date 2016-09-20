@@ -50,7 +50,7 @@ class DefaultController extends Controller
     public function applyTransitionAction(Request $request, Product $product)
     {
         try {
-            $this->get('workflow.order')
+            $this->get('workflow.product')
                 ->apply($product, $request->request->get('transition'));
 
             $this->get('doctrine')->getManager()->flush();

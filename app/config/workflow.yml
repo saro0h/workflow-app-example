@@ -1,6 +1,6 @@
 framework:
   workflows:
-      order:
+      product:
           marking_store:
               type: property_accessor
           supports:
